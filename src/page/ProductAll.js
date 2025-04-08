@@ -9,6 +9,12 @@ const ProductAll = () => {
         let data = await response.json();
         setProductList(data)
     }
+    
+    //오류방지용용
+    productList.map((item) => (
+      <ProductCard key={item.id} item={item} />
+    ))   
+
     useEffect(() => {
         getProducts()
     }, [])
