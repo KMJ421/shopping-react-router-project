@@ -16,13 +16,13 @@ const ProductDetail = () => {
   }
   useEffect(() => {
     getProductDetail()
-  }, [])
+  }, [getProductDetail])
 
   return (
     <Container>
       <Row>
         <Col className="product-img">
-          <img width="300px" src={product?.img} />
+          <img width="300px" src={product?.img} art="" />
         </Col>
         <Col>
           <div className="product-title">{product?.title}</div>
