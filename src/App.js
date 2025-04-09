@@ -1,9 +1,12 @@
+import { useEffect, useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom';
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import Navbar from "./component/Navbar";
+import PrivateRoute from "./routes/PrivateRoute";
 
 //1. 전체상품페이지, 로그인, 상품상세페이지
 //   네비게이션바
@@ -17,13 +20,18 @@ import Navbar from "./component/Navbar";
 //9. 상품을 검색할 수 있다.
 
 function App() {
+  const[authenticate, setAuthenticate]=useState(false) //트루면 로그인o flase면 x
+  useEffect(() => {
+    console.log("authenticate", authenticate);
+  }, [authenticate])
+
   return (
     <div>
       <Navbar/>
       <Routes>
         <Route path="/" element={<ProductAll/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/product/:id" element={<ProductDetail/>}/>
+        <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}/>
+        <Route path="/product/:id" element={<PrivateRoute authenticate={authenticate}/>}/>
       </Routes>
     </div>
   );

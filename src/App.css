@@ -1,4 +1,4 @@
-body {
+body{
   overflow-x: hidden;
 }
 
@@ -6,6 +6,9 @@ body {
   display: flex;
   justify-content: flex-end;
   margin: 20px;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
 }
 
 .nav-section{
@@ -27,6 +30,9 @@ body {
   display: flex;
   justify-content: center;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 60px;
 }
 
 .search-box{
@@ -48,4 +54,34 @@ body {
 .search-box input::placeholder {
   padding-left: 8px;
   font-size: 14px;
+}
+
+.product-card {
+  margin-bottom: 15px;
+}
+
+.product-card:hover {
+  transition: transform 0.4s ease;
+  transform: scale(1.05); /* 5% 확대 */
+}
+
+.product-img{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.product-choice {
+  font-size: 14px;
+  margin-bottom: 5px;
 }
