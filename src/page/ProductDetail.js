@@ -8,21 +8,22 @@ import { Button } from 'react-bootstrap'
 const ProductDetail = () => {
   let{id} = useParams()
   const [product, setProduct] = useState(null);
-  const getProductDetail = async() => {
-    let url = `https://my-json-server.typicode.com/KMJ421/shopping-react-router-project/products/${id}`
-    let response = await fetch(url)
-    let data = await response.json();
-    setProduct(data);
-  }
+  
   useEffect(() => {
+    const getProductDetail = async() => {
+      let url = `https://my-json-server.typicode.com/KMJ421/shopping-react-router-project/products/${id}`
+      let response = await fetch(url)
+      let data = await response.json();
+      setProduct(data);
+    };
     getProductDetail()
-  }, [getProductDetail])
+  }, [id])
 
   return (
     <Container>
       <Row>
         <Col className="product-img">
-          <img width="300px" src={product?.img} art="" />
+          <img width="300px" src={product?.img} alt="상품 이미지" />
         </Col>
         <Col>
           <div className="product-title">{product?.title}</div>

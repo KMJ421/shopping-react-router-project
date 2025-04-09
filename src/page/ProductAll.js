@@ -4,12 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 const ProductAll = () => {
     const [productList, setProductList] = useState([]);
-    const getProducts= async() => {
-        let url = 'https://my-json-server.typicode.com/KMJ421/shopping-react-router-project/products';
-        let response = await fetch(url);
-        let data = await response.json();
-        setProductList(data)
-    }
     
     //오류방지용용
     productList.map((item) => (
@@ -17,8 +11,14 @@ const ProductAll = () => {
     ))   
 
     useEffect(() => {
+      const getProducts= async() => {
+        let url = 'https://my-json-server.typicode.com/KMJ421/shopping-react-router-project/products';
+        let response = await fetch(url);
+        let data = await response.json();
+        setProductList(data)
+    };
         getProducts()
-    }, [getProducts])
+    }, [])
   return (
     <div>
       <Container>
