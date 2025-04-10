@@ -11,7 +11,7 @@ const Login = ({setAuthenticate}) => {
     navigate("/");
   }
   return (
-    <Container>
+    <Container style={{ maxWidth: '600px' }}>
       <Form onSubmit={(event) => loginUser(event)}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
